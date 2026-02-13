@@ -134,6 +134,7 @@ Esto levanta PostgreSQL, RabbitMQ y ambos microservicios.
 ## 11. Postman
 
 Se incluye una colección Postman con ejemplos de uso de los endpoints.
+https://crimson-astronaut-278460.postman.co/workspace/My-Workspace~c025fe31-4861-4a46-827f-ae0059764272/collection/37163085-1efb2d5a-74e6-4221-9681-f9882d0fc0c6?action=share&creator=37163085
 
 ## 12. Consideraciones finales
 
