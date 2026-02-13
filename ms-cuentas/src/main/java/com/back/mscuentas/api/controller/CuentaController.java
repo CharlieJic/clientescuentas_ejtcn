@@ -7,6 +7,9 @@ import com.back.mscuentas.infrastructure.persistence.entity.CuentaEntity;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.back.mscuentas.api.dto.CuentaPatchRequest;
+import com.back.mscuentas.api.dto.CuentaUpdateRequest;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -34,6 +37,22 @@ public class CuentaController {
     @GetMapping
     public List<CuentaResponse> list() {
         return service.list().stream().map(this::toResponse).toList();
+    }
+
+    @PutMapping("/{id}")
+    public CuentaResponse update(@PathVariable Long id, @Valid @RequestBody CuentaUpdateRequest req) {
+        return toResponse(service.update(id, req));
+    }
+
+    @PatchMapping("/{id}")
+    public CuentaResponse patch(@PathVariable Long id, @Valid @RequestBody CuentaPatchRequest req) {
+        return toResponse(service.patch(id, req));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     private CuentaResponse toResponse(CuentaEntity e) {
